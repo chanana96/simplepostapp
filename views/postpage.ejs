@@ -1,0 +1,39 @@
+<h1 class="mt-4 text-center">Make a post</h1>
+
+<%- include('partials/messages') %><div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <form action="/users/postpage" method="POST">
+        <div class="form-group">
+          <label for="postTitle">Title</label>
+          <input required
+            type="postTitle"
+            id="postTitle"
+            name="postTitle"
+            class="form-control"
+            placeholder="Enter Title"
+            value="<%= typeof postTitle != 'undefined' ? postTitle : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="postText">Text</label>
+<textarea required style="height:200px;"
+            type="postText"
+            id="postText"
+            name="postText"
+            class="form-control"
+            value="<%= typeof postText != 'undefined' ? postText : '' %>"
+            placeholder="Enter text">
+</textarea>
+        </div>
+        <p></p>
+        <button type="submit" class="btn btn-primary btn-block">
+            Submit
+        </button>
+    </form>
+    </div>
+  </div>
+</div>
+<p></p>
+
+<div class="text-center"><a href="/dashboard" class="btn btn-secondary">Back to dashboard</a><a href="/users/logout" class="btn btn-secondary">Logout</a></div>

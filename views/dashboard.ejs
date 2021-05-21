@@ -1,0 +1,28 @@
+<h1 class="mt-4 text-center">Dashboard</h1>
+<p class="lead mb-3 text-center">Welcome <%= name %></p>
+<div class="text-center"><a href="/users/logout" class="btn btn-secondary">Logout</a>
+<a href="/users/postpage" class="btn btn-secondary">Make a post</a></div>
+<p></p>
+
+<div class="col-md-10 m-auto">
+    <div class="card card-body text-center">
+<% newPost.forEach(newPost => { %>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title"><%= newPost.postTitle %></h4>
+            <div class="card-subtitle text-muted mb-2">
+                <%= newPost.date.toLocaleDateString() %>
+            </div>
+            <div class="card-text mb-2">
+                <%= newPost.postText %>
+            </div>
+            <a href="/users/postpage/<%= newPost.id%>" class="btn btn-primary">Read more</a>
+            <form action="/users/postpage/<%= newPost.id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+<% }) %>
+</div>
+</div>
+</div>
